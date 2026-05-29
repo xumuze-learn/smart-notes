@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 300px;
+  padding: 16px;
+  background: #0d1117;
+  color: #e6edf3;
+  font-family: -apple-system, 'Segoe UI', sans-serif;
+}
+h2 {
+  font-size: 16px;
+  color: #58a6ff;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.info {
+  font-size: 13px;
+  color: #8b949e;
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+#platform {
+  font-size: 13px;
+  color: #3fb950;
+  margin-bottom: 12px;
+}
+#messages {
+  font-size: 12px;
+  color: #8b949e;
+  margin-bottom: 12px;
+}
+button {
+  width: 100%;
+  padding: 10px;
+  background: #58a6ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+button:hover { background: #79c0ff; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+#status {
+  font-size: 13px;
+  text-align: center;
+  min-height: 20px;
+}
+.success { color: #3fb950; }
+.error { color: #f85149; }
+</style>
+</head>
+<body>
+<h2>✨ Smart Notes</h2>
+<div class="info">点击按钮提取当前页面的 AI 对话，保存到 Smart Notes</div>
+<div id="platform"></div>
+<div id="messages"></div>
+<button id="extract">📝 提取当前对话</button>
+<div id="status"></div>
+
+<script>
+const platformEl = document.getElementById('platform')
+const messagesEl = document.getElementById('messages')
+const extractBtn = document.getElementById('extract')
+const statusEl = document.getElementById('status')
+
+// 获取当前标签页信息
+chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+  const tab = tabs[0]
+  if (!tab) return
+
+  // 发送消息到 content script 获取对话信息
+  chrome.tabs.sendMessage(tab.id, { action: 'extract' }, (response) => {
+    if (chrome.runtime.lastError || !response) {
+      platformEl.textContent = '⚠️ 当前页面不支持'
+      messagesEl.textContent = '请在 AI 对话页面使用'
+      extractBtn.disabled = true
+      return
+    }
+    platformEl.textContent = `平台: ${response.platform}`
+    messagesEl.textContent = `检测到 ${response.messages?.length || 0} 条消息`
+  })
+})
+
+extractBtn.addEventListener('click', () => {
+  extractBtn.disabled = true
+  extractBtn.textContent = '⏳ 提取中...'
+  statusEl.textContent = ''
+  statusEl.className = ''
+
+  chrome.tabs.query({ active: true, currentWindow: true }, async (tabs) => {
+    const tab = tabs[0]
+
+    chrome.tabs.sendMessage(tab.id, { action: 'extract' }, async (response) => {
+      if (!response || !response.text) {
+        statusEl.textContent = '未检测到对话内容'
+        statusEl.className = 'error'
+        extractBtn.disabled = false
+        extractBtn.textContent = '📝 提取当前对话'
+        return
+      }
+
+      try {
+        const resp = await fetch('http://localhost:3001/api/notes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            title: `${response.platform} 对话 - ${new Date().toLocaleDateString('zh-CN')}`,
+            original_text: response.text,
+            source_url: response.url
+          })
+        })
+
+        if (resp.ok) {
+          statusEl.textContent = '✅ 已保存到 Smart Notes!'
+          statusEl.className = 'success'
+        } else {
+          statusEl.textContent = '❌ 保存失败'
+          statusEl.className = 'error'
+        }
+      } catch (err) {
+        statusEl.textContent = '❌ 请先启动 Smart Notes 服务'
+        statusEl.className = 'error'
+      }
+
+      extractBtn.disabled = false
+      extractBtn.textContent = '📝 提取当前对话'
+    })
+  })
+})
+</script>
+</body>
+</html>

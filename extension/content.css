@@ -1,0 +1,28 @@
+#smartnotes-extract-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999999;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #58a6ff, #bc8cff);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(88, 166, 255, 0.4);
+  transition: all 0.2s;
+  font-family: -apple-system, 'Segoe UI', sans-serif;
+}
+
+#smartnotes-extract-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(88, 166, 255, 0.5);
+}
+
+#smartnotes-extract-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}

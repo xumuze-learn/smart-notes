@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Notes - AI 对话提取",
+  "version": "1.0",
+  "description": "一键提取 AI 对话内容，保存到 Smart Notes",
+  "permissions": ["activeTab"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://chat.deepseek.com/*",
+        "*://kimi.moonshot.cn/*",
+        "*://chatgpt.com/*",
+        "*://claude.ai/*",
+        "*://doubao.com/*",
+        "*://tongyi.aliyun.com/*",
+        "*://yiyan.baidu.com/*",
+        "*://xinghuo.xfyun.cn/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"]
+    }
+  ],
+  "host_permissions": [
+    "*://chat.deepseek.com/*",
+    "*://kimi.moonshot.cn/*",
+    "*://chatgpt.com/*",
+    "*://claude.ai/*",
+    "*://doubao.com/*",
+    "*://tongyi.aliyun.com/*",
+    "*://yiyan.baidu.com/*",
+    "*://xinghuo.xfyun.cn/*"
+  ]
+}
