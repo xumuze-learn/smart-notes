@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { clearNotes } from '../services/api.js'
+import { clearNotes, exportNotes } from '../services/api.js'
 
 export default function SettingsPage() {
   const [status, setStatus] = useState('')
@@ -11,21 +11,17 @@ export default function SettingsPage() {
     setTimeout(() => setStatus(''), 3000)
   }
 
-  function handleExport() {
-    // 导出所有笔记为 JSON
-    fetch('/api/notes')
-      .then(r => r.json())
-      .then(data => {
-        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
-        const url = URL.createObjectURL(blob)
-        const a = document.createElement('a')
-        a.href = url
-        a.download = `smart-notes-backup-${new Date().toISOString().slice(0, 10)}.json`
-        a.click()
-        URL.revokeObjectURL(url)
-        setStatus('✅ 导出成功')
-        setTimeout(() => setStatus(''), 3000)
-      })
+  async function handleExport() {
+    const data = await exportNotes()
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `smart-notes-backup-${new Date().toISOString().slice(0, 10)}.json`
+    a.click()
+    URL.revokeObjectURL(url)
+    setStatus('✅ 导出成功')
+    setTimeout(() => setStatus(''), 3000)
   }
 
   return (

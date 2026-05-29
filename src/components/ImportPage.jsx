@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { createNote } from '../services/api.js'
+import { createNote, summarize } from '../services/api.js'
 
 const PLATFORMS = ['', 'DeepSeek', 'Kimi', 'ChatGPT', 'Claude', '豆包', '通义千问', '文心一言', '其他']
 
