@@ -24,8 +24,8 @@ body{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);min-height:100vh
 .radio-group label.rl:hover,.checkbox-group label.rl:hover{border-color:#667eea;background:rgba(102,126,234,.1)}
 .radio-group label.rl:has(input:checked),.checkbox-group label.rl:has(input:checked){border-color:#667eea;background:rgba(102,126,234,.15)}
 input[type="radio"],input[type="checkbox"]{accent-color:#667eea}
-input[type="text"],input[type="tel"],textarea{width:100%;padding:12px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);border-radius:8px;color:#e0e0e0;font-size:.95rem;outline:none;font-family:inherit}
-input[type="text"]:focus,input[type="tel"]:focus,textarea:focus{border-color:#667eea}
+input[type="text"],textarea{width:100%;padding:12px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);border-radius:8px;color:#e0e0e0;font-size:.95rem;outline:none;font-family:inherit}
+input[type="text"]:focus,textarea:focus{border-color:#667eea}
 textarea{min-height:80px;resize:vertical}
 .submit-wrap{text-align:center;padding:20px 0 40px}
 .submit-btn{padding:14px 48px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:12px;font-size:1.1rem;font-weight:600;cursor:pointer;transition:all .3s}
@@ -34,7 +34,7 @@ textarea{min-height:80px;resize:vertical}
 .thank-you{text-align:center;padding:60px 20px}
 .thank-you h2{font-size:1.8rem;color:#667eea;margin-bottom:12px}
 .thank-you p{color:#a0a0c0;margin-bottom:20px;line-height:1.6}
-.copy-btn{padding:10px 24px;background:rgba(255,255,255,.1);color:#e0e0e0;border:1px solid rgba(255,255,255,.2);border-radius:8px;cursor:pointer;font-size:.9rem;margin:6px}
+.copy-btn{padding:12px 32px;background:rgba(255,255,255,.1);color:#e0e0e0;border:1px solid rgba(255,255,255,.2);border-radius:8px;cursor:pointer;font-size:1rem;margin:6px}
 .copy-btn:hover{background:rgba(255,255,255,.15)}
 .wechat-box{background:rgba(102,126,234,.15);border:1px solid rgba(102,126,234,.3);border-radius:12px;padding:16px;margin:20px 0;text-align:center}
 .wechat-box .wx-id{font-size:1.3rem;color:#667eea;font-weight:700;letter-spacing:1px;margin:8px 0}
@@ -44,7 +44,7 @@ textarea{min-height:80px;resize:vertical}
 <div class="container">
 <div class="header">
 <h1>📋 青年生活调查</h1>
-<p>了解当代年轻人的真实生活，匿名填写，约3-5分钟</p>
+<p>了解当代年轻人的真实生活，匿名填写，约5分钟</p>
 </div>
 <div class="progress-bar"><div class="progress-fill" id="progress" style="width:0%"></div></div>
 
@@ -53,12 +53,10 @@ textarea{min-height:80px;resize:vertical}
 <!-- 基本信息 -->
 <div class="section">
 <div class="section-title">👤 基本信息</div>
-
 <div class="question">
 <label class="ql">你的昵称或称呼是？<span class="required">*</span></label>
 <input type="text" name="nickname" placeholder="填个昵称或称呼就行，不需要真名" required>
 </div>
-
 <div class="question">
 <label class="ql">你的年龄段？<span class="required">*</span></label>
 <div class="radio-group">
@@ -68,7 +66,6 @@ textarea{min-height:80px;resize:vertical}
 <label class="rl"><input type="radio" name="age" value="30+"><span>30+</span></label>
 </div>
 </div>
-
 <div class="question">
 <label class="ql">你的性别？</label>
 <div class="radio-group">
@@ -77,7 +74,6 @@ textarea{min-height:80px;resize:vertical}
 <label class="rl"><input type="radio" name="gender" value="不想说"><span>不想说</span></label>
 </div>
 </div>
-
 <div class="question">
 <label class="ql">你在哪类城市？</label>
 <div class="radio-group">
@@ -87,7 +83,6 @@ textarea{min-height:80px;resize:vertical}
 <label class="rl"><input type="radio" name="city" value="三线及以下"><span>三线及以下</span></label>
 </div>
 </div>
-
 <div class="question">
 <label class="ql">你目前的身份？<span class="required">*</span></label>
 <div class="radio-group">
@@ -104,707 +99,180 @@ textarea{min-height:80px;resize:vertical}
 <!-- 学生专属 -->
 <div class="section hidden" id="sec-student">
 <div class="section-title">🎓 学生专属</div>
-
-<div class="question">
-<label class="ql">你现在什么阶段？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="stu_level" value="大专"><span>大专</span></label>
-<label class="rl"><input type="radio" name="stu_level" value="本科"><span>本科</span></label>
-<label class="rl"><input type="radio" name="stu_level" value="硕士"><span>硕士</span></label>
-<label class="rl"><input type="radio" name="stu_level" value="博士"><span>博士</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你学的什么专业大类？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="stu_major" value="理工"><span>理工</span></label>
-<label class="rl"><input type="radio" name="stu_major" value="文史"><span>文史</span></label>
-<label class="rl"><input type="radio" name="stu_major" value="艺术"><span>艺术</span></label>
-<label class="rl"><input type="radio" name="stu_major" value="商科"><span>商科</span></label>
-<label class="rl"><input type="radio" name="stu_major" value="医学"><span>医学</span></label>
-<label class="rl"><input type="radio" name="stu_major" value="其他"><span>其他</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你对所学专业感兴趣吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="stu_interest" value="很喜欢"><span>很喜欢</span></label>
-<label class="rl"><input type="radio" name="stu_interest" value="还行"><span>还行</span></label>
-<label class="rl"><input type="radio" name="stu_interest" value="不喜欢"><span>不喜欢</span></label>
-<label class="rl"><input type="radio" name="stu_interest" value="很讨厌"><span>很讨厌</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你有挂科或学业困难的情况吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="stu_grade" value="没有"><span>没有</span></label>
-<label class="rl"><input type="radio" name="stu_grade" value="偶尔"><span>偶尔</span></label>
-<label class="rl"><input type="radio" name="stu_grade" value="经常"><span>经常</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你打算考研/考公吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="stu_exam" value="正在准备"><span>正在准备</span></label>
-<label class="rl"><input type="radio" name="stu_exam" value="考虑中"><span>考虑中</span></label>
-<label class="rl"><input type="radio" name="stu_exam" value="不打算"><span>不打算</span></label>
-<label class="rl"><input type="radio" name="stu_exam" value="已经考过了"><span>已经考过了</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你担心毕业找工作吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="stu_job_worry" value="非常担心"><span>非常担心</span></label>
-<label class="rl"><input type="radio" name="stu_job_worry" value="有点担心"><span>有点担心</span></label>
-<label class="rl"><input type="radio" name="stu_job_worry" value="不担心"><span>不担心</span></label>
-<label class="rl"><input type="radio" name="stu_job_worry" value="已经找到了"><span>已经找到了</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你觉得大学学的东西有用吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="stu_useful" value="很有用"><span>很有用</span></label>
-<label class="rl"><input type="radio" name="stu_useful" value="有点用"><span>有点用</span></label>
-<label class="rl"><input type="radio" name="stu_useful" value="基本没用"><span>基本没用</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你有实习经历吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="stu_intern" value="有好几段"><span>有好几段</span></label>
-<label class="rl"><input type="radio" name="stu_intern" value="有一段"><span>有一段</span></label>
-<label class="rl"><input type="radio" name="stu_intern" value="没有"><span>没有</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你第一份工作期望月薪多少？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="stu_salary" value="3000-5000"><span>3000-5000</span></label>
-<label class="rl"><input type="radio" name="stu_salary" value="5000-8000"><span>5000-8000</span></label>
-<label class="rl"><input type="radio" name="stu_salary" value="8000-12000"><span>8000-12000</span></label>
-<label class="rl"><input type="radio" name="stu_salary" value="12000以上"><span>12000以上</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你每个月生活费大概多少？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="stu_living" value="1000以下"><span>1000以下</span></label>
-<label class="rl"><input type="radio" name="stu_living" value="1000-2000"><span>1000-2000</span></label>
-<label class="rl"><input type="radio" name="stu_living" value="2000-3000"><span>2000-3000</span></label>
-<label class="rl"><input type="radio" name="stu_living" value="3000以上"><span>3000以上</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你觉得钱够花吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="stu_money" value="够用有余"><span>够用有余</span></label>
-<label class="rl"><input type="radio" name="stu_money" value="刚好够用"><span>刚好够用</span></label>
-<label class="rl"><input type="radio" name="stu_money" value="不够用"><span>不够用</span></label>
-<label class="rl"><input type="radio" name="stu_money" value="经常借钱"><span>经常借钱</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你和室友/同学关系好吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="stu_relation" value="很好"><span>很好</span></label>
-<label class="rl"><input type="radio" name="stu_relation" value="还行"><span>还行</span></label>
-<label class="rl"><input type="radio" name="stu_relation" value="一般"><span>一般</span></label>
-<label class="rl"><input type="radio" name="stu_relation" value="不好"><span>不好</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你觉得大学生活充实吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="stu_full" value="很充实"><span>很充实</span></label>
-<label class="rl"><input type="radio" name="stu_full" value="还行"><span>还行</span></label>
-<label class="rl"><input type="radio" name="stu_full" value="挺空虚的"><span>挺空虚的</span></label>
-</div>
-</div>
+<div class="question"><label class="ql">你现在什么阶段？</label><div class="radio-group"><label class="rl"><input type="radio" name="stu_level" value="大专"><span>大专</span></label><label class="rl"><input type="radio" name="stu_level" value="本科"><span>本科</span></label><label class="rl"><input type="radio" name="stu_level" value="硕士"><span>硕士</span></label><label class="rl"><input type="radio" name="stu_level" value="博士"><span>博士</span></label></div></div>
+<div class="question"><label class="ql">你学的什么专业大类？</label><div class="radio-group"><label class="rl"><input type="radio" name="stu_major" value="理工"><span>理工</span></label><label class="rl"><input type="radio" name="stu_major" value="文史"><span>文史</span></label><label class="rl"><input type="radio" name="stu_major" value="艺术"><span>艺术</span></label><label class="rl"><input type="radio" name="stu_major" value="商科"><span>商科</span></label><label class="rl"><input type="radio" name="stu_major" value="医学"><span>医学</span></label><label class="rl"><input type="radio" name="stu_major" value="其他"><span>其他</span></label></div></div>
+<div class="question"><label class="ql">你对所学专业感兴趣吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="stu_interest" value="很喜欢"><span>很喜欢</span></label><label class="rl"><input type="radio" name="stu_interest" value="还行"><span>还行</span></label><label class="rl"><input type="radio" name="stu_interest" value="不喜欢"><span>不喜欢</span></label><label class="rl"><input type="radio" name="stu_interest" value="很讨厌"><span>很讨厌</span></label></div></div>
+<div class="question"><label class="ql">你有挂科或学业困难的情况吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="stu_grade" value="没有"><span>没有</span></label><label class="rl"><input type="radio" name="stu_grade" value="偶尔"><span>偶尔</span></label><label class="rl"><input type="radio" name="stu_grade" value="经常"><span>经常</span></label></div></div>
+<div class="question"><label class="ql">你打算考研/考公吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="stu_exam" value="正在准备"><span>正在准备</span></label><label class="rl"><input type="radio" name="stu_exam" value="考虑中"><span>考虑中</span></label><label class="rl"><input type="radio" name="stu_exam" value="不打算"><span>不打算</span></label><label class="rl"><input type="radio" name="stu_exam" value="已经考过了"><span>已经考过了</span></label></div></div>
+<div class="question"><label class="ql">你担心毕业找工作吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="stu_job_worry" value="非常担心"><span>非常担心</span></label><label class="rl"><input type="radio" name="stu_job_worry" value="有点担心"><span>有点担心</span></label><label class="rl"><input type="radio" name="stu_job_worry" value="不担心"><span>不担心</span></label><label class="rl"><input type="radio" name="stu_job_worry" value="已经找到了"><span>已经找到了</span></label></div></div>
+<div class="question"><label class="ql">你觉得大学学的东西有用吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="stu_useful" value="很有用"><span>很有用</span></label><label class="rl"><input type="radio" name="stu_useful" value="有点用"><span>有点用</span></label><label class="rl"><input type="radio" name="stu_useful" value="基本没用"><span>基本没用</span></label></div></div>
+<div class="question"><label class="ql">你有实习经历吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="stu_intern" value="有好几段"><span>有好几段</span></label><label class="rl"><input type="radio" name="stu_intern" value="有一段"><span>有一段</span></label><label class="rl"><input type="radio" name="stu_intern" value="没有"><span>没有</span></label></div></div>
+<div class="question"><label class="ql">你第一份工作期望月薪多少？</label><div class="radio-group"><label class="rl"><input type="radio" name="stu_salary" value="3000-5000"><span>3000-5000</span></label><label class="rl"><input type="radio" name="stu_salary" value="5000-8000"><span>5000-8000</span></label><label class="rl"><input type="radio" name="stu_salary" value="8000-12000"><span>8000-12000</span></label><label class="rl"><input type="radio" name="stu_salary" value="12000以上"><span>12000以上</span></label></div></div>
+<div class="question"><label class="ql">你每个月生活费大概多少？</label><div class="radio-group"><label class="rl"><input type="radio" name="stu_living" value="1000以下"><span>1000以下</span></label><label class="rl"><input type="radio" name="stu_living" value="1000-2000"><span>1000-2000</span></label><label class="rl"><input type="radio" name="stu_living" value="2000-3000"><span>2000-3000</span></label><label class="rl"><input type="radio" name="stu_living" value="3000以上"><span>3000以上</span></label></div></div>
+<div class="question"><label class="ql">你觉得钱够花吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="stu_money" value="够用有余"><span>够用有余</span></label><label class="rl"><input type="radio" name="stu_money" value="刚好够用"><span>刚好够用</span></label><label class="rl"><input type="radio" name="stu_money" value="不够用"><span>不够用</span></label><label class="rl"><input type="radio" name="stu_money" value="经常借钱"><span>经常借钱</span></label></div></div>
+<div class="question"><label class="ql">你和室友/同学关系好吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="stu_relation" value="很好"><span>很好</span></label><label class="rl"><input type="radio" name="stu_relation" value="还行"><span>还行</span></label><label class="rl"><input type="radio" name="stu_relation" value="一般"><span>一般</span></label><label class="rl"><input type="radio" name="stu_relation" value="不好"><span>不好</span></label></div></div>
+<div class="question"><label class="ql">你觉得大学生活充实吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="stu_full" value="很充实"><span>很充实</span></label><label class="rl"><input type="radio" name="stu_full" value="还行"><span>还行</span></label><label class="rl"><input type="radio" name="stu_full" value="挺空虚的"><span>挺空虚的</span></label></div></div>
 </div>
 
 <!-- 上班族专属 -->
 <div class="section hidden" id="sec-worker">
 <div class="section-title">💼 上班族专属</div>
-
-<div class="question">
-<label class="ql">你做什么行业？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="work_industry" value="互联网"><span>互联网</span></label>
-<label class="rl"><input type="radio" name="work_industry" value="金融"><span>金融</span></label>
-<label class="rl"><input type="radio" name="work_industry" value="教育"><span>教育</span></label>
-<label class="rl"><input type="radio" name="work_industry" value="医疗"><span>医疗</span></label>
-<label class="rl"><input type="radio" name="work_industry" value="制造"><span>制造</span></label>
-<label class="rl"><input type="radio" name="work_industry" value="零售"><span>零售</span></label>
-<label class="rl"><input type="radio" name="work_industry" value="政府"><span>政府</span></label>
-<label class="rl"><input type="radio" name="work_industry" value="其他"><span>其他</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你工作几年了？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="work_years" value="1年以下"><span>1年以下</span></label>
-<label class="rl"><input type="radio" name="work_years" value="1-3年"><span>1-3年</span></label>
-<label class="rl"><input type="radio" name="work_years" value="3-5年"><span>3-5年</span></label>
-<label class="rl"><input type="radio" name="work_years" value="5-10年"><span>5-10年</span></label>
-<label class="rl"><input type="radio" name="work_years" value="10年以上"><span>10年以上</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你对现在的工作满意吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="work_satisfied" value="很满意"><span>很满意</span></label>
-<label class="rl"><input type="radio" name="work_satisfied" value="还行"><span>还行</span></label>
-<label class="rl"><input type="radio" name="work_satisfied" value="不满意"><span>不满意</span></label>
-<label class="rl"><input type="radio" name="work_satisfied" value="很想辞职"><span>很想辞职</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你月薪大概多少？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="work_salary" value="3000以下"><span>3000以下</span></label>
-<label class="rl"><input type="radio" name="work_salary" value="3000-6000"><span>3000-6000</span></label>
-<label class="rl"><input type="radio" name="work_salary" value="6000-10000"><span>6000-10000</span></label>
-<label class="rl"><input type="radio" name="work_salary" value="10000-20000"><span>10000-20000</span></label>
-<label class="rl"><input type="radio" name="work_salary" value="20000以上"><span>20000以上</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你觉得付出和收入匹配吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="work_fair" value="匹配"><span>匹配</span></label>
-<label class="rl"><input type="radio" name="work_fair" value="差不多"><span>差不多</span></label>
-<label class="rl"><input type="radio" name="work_fair" value="不匹配，付出更多"><span>不匹配，付出更多</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你加班多吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="work_ot" value="很少"><span>很少</span></label>
-<label class="rl"><input type="radio" name="work_ot" value="偶尔"><span>偶尔</span></label>
-<label class="rl"><input type="radio" name="work_ot" value="经常"><span>经常</span></label>
-<label class="rl"><input type="radio" name="work_ot" value="几乎天天"><span>几乎天天</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你有被裁员或降薪的担忧吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="work_fire" value="很担心"><span>很担心</span></label>
-<label class="rl"><input type="radio" name="work_fire" value="有点"><span>有点</span></label>
-<label class="rl"><input type="radio" name="work_fire" value="不担心"><span>不担心</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你有想过跳槽吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="work_switch" value="正在找"><span>正在找</span></label>
-<label class="rl"><input type="radio" name="work_switch" value="想过但没行动"><span>想过但没行动</span></label>
-<label class="rl"><input type="radio" name="work_switch" value="没有"><span>没有</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你觉得现在的工作有前途吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="work_future" value="很有"><span>很有</span></label>
-<label class="rl"><input type="radio" name="work_future" value="还行"><span>还行</span></label>
-<label class="rl"><input type="radio" name="work_future" value="看不到前途"><span>看不到前途</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你有职业规划吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="work_plan" value="有清晰的"><span>有清晰的</span></label>
-<label class="rl"><input type="radio" name="work_plan" value="大概方向"><span>大概方向</span></label>
-<label class="rl"><input type="radio" name="work_plan" value="完全没想过"><span>完全没想过</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你觉得工作和生活平衡吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="work_balance" value="平衡"><span>平衡</span></label>
-<label class="rl"><input type="radio" name="work_balance" value="还行"><span>还行</span></label>
-<label class="rl"><input type="radio" name="work_balance" value="严重失衡"><span>严重失衡</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你每天通勤多久？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="work_commute" value="30分钟以内"><span>30分钟以内</span></label>
-<label class="rl"><input type="radio" name="work_commute" value="30-60分钟"><span>30-60分钟</span></label>
-<label class="rl"><input type="radio" name="work_commute" value="1-2小时"><span>1-2小时</span></label>
-<label class="rl"><input type="radio" name="work_commute" value="2小时以上"><span>2小时以上</span></label>
-</div>
-</div>
+<div class="question"><label class="ql">你做什么行业？</label><div class="radio-group"><label class="rl"><input type="radio" name="work_industry" value="互联网"><span>互联网</span></label><label class="rl"><input type="radio" name="work_industry" value="金融"><span>金融</span></label><label class="rl"><input type="radio" name="work_industry" value="教育"><span>教育</span></label><label class="rl"><input type="radio" name="work_industry" value="医疗"><span>医疗</span></label><label class="rl"><input type="radio" name="work_industry" value="制造"><span>制造</span></label><label class="rl"><input type="radio" name="work_industry" value="零售"><span>零售</span></label><label class="rl"><input type="radio" name="work_industry" value="政府"><span>政府</span></label><label class="rl"><input type="radio" name="work_industry" value="其他"><span>其他</span></label></div></div>
+<div class="question"><label class="ql">你工作几年了？</label><div class="radio-group"><label class="rl"><input type="radio" name="work_years" value="1年以下"><span>1年以下</span></label><label class="rl"><input type="radio" name="work_years" value="1-3年"><span>1-3年</span></label><label class="rl"><input type="radio" name="work_years" value="3-5年"><span>3-5年</span></label><label class="rl"><input type="radio" name="work_years" value="5-10年"><span>5-10年</span></label><label class="rl"><input type="radio" name="work_years" value="10年以上"><span>10年以上</span></label></div></div>
+<div class="question"><label class="ql">你对现在的工作满意吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="work_satisfied" value="很满意"><span>很满意</span></label><label class="rl"><input type="radio" name="work_satisfied" value="还行"><span>还行</span></label><label class="rl"><input type="radio" name="work_satisfied" value="不满意"><span>不满意</span></label><label class="rl"><input type="radio" name="work_satisfied" value="很想辞职"><span>很想辞职</span></label></div></div>
+<div class="question"><label class="ql">你月薪大概多少？</label><div class="radio-group"><label class="rl"><input type="radio" name="work_salary" value="3000以下"><span>3000以下</span></label><label class="rl"><input type="radio" name="work_salary" value="3000-6000"><span>3000-6000</span></label><label class="rl"><input type="radio" name="work_salary" value="6000-10000"><span>6000-10000</span></label><label class="rl"><input type="radio" name="work_salary" value="10000-20000"><span>10000-20000</span></label><label class="rl"><input type="radio" name="work_salary" value="20000以上"><span>20000以上</span></label></div></div>
+<div class="question"><label class="ql">你觉得付出和收入匹配吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="work_fair" value="匹配"><span>匹配</span></label><label class="rl"><input type="radio" name="work_fair" value="差不多"><span>差不多</span></label><label class="rl"><input type="radio" name="work_fair" value="不匹配，付出更多"><span>不匹配，付出更多</span></label></div></div>
+<div class="question"><label class="ql">你加班多吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="work_ot" value="很少"><span>很少</span></label><label class="rl"><input type="radio" name="work_ot" value="偶尔"><span>偶尔</span></label><label class="rl"><input type="radio" name="work_ot" value="经常"><span>经常</span></label><label class="rl"><input type="radio" name="work_ot" value="几乎天天"><span>几乎天天</span></label></div></div>
+<div class="question"><label class="ql">你有被裁员或降薪的担忧吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="work_fire" value="很担心"><span>很担心</span></label><label class="rl"><input type="radio" name="work_fire" value="有点"><span>有点</span></label><label class="rl"><input type="radio" name="work_fire" value="不担心"><span>不担心</span></label></div></div>
+<div class="question"><label class="ql">你有想过跳槽吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="work_switch" value="正在找"><span>正在找</span></label><label class="rl"><input type="radio" name="work_switch" value="想过但没行动"><span>想过但没行动</span></label><label class="rl"><input type="radio" name="work_switch" value="没有"><span>没有</span></label></div></div>
+<div class="question"><label class="ql">你觉得现在的工作有前途吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="work_future" value="很有"><span>很有</span></label><label class="rl"><input type="radio" name="work_future" value="还行"><span>还行</span></label><label class="rl"><input type="radio" name="work_future" value="看不到前途"><span>看不到前途</span></label></div></div>
+<div class="question"><label class="ql">你有职业规划吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="work_plan" value="有清晰的"><span>有清晰的</span></label><label class="rl"><input type="radio" name="work_plan" value="大概方向"><span>大概方向</span></label><label class="rl"><input type="radio" name="work_plan" value="完全没想过"><span>完全没想过</span></label></div></div>
+<div class="question"><label class="ql">你觉得工作和生活平衡吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="work_balance" value="平衡"><span>平衡</span></label><label class="rl"><input type="radio" name="work_balance" value="还行"><span>还行</span></label><label class="rl"><input type="radio" name="work_balance" value="严重失衡"><span>严重失衡</span></label></div></div>
+<div class="question"><label class="ql">你每天通勤多久？</label><div class="radio-group"><label class="rl"><input type="radio" name="work_commute" value="30分钟以内"><span>30分钟以内</span></label><label class="rl"><input type="radio" name="work_commute" value="30-60分钟"><span>30-60分钟</span></label><label class="rl"><input type="radio" name="work_commute" value="1-2小时"><span>1-2小时</span></label><label class="rl"><input type="radio" name="work_commute" value="2小时以上"><span>2小时以上</span></label></div></div>
 </div>
 
 <!-- 自由职业/创业专属 -->
 <div class="section hidden" id="sec-freelance">
 <div class="section-title">🎨 自由职业/创业专属</div>
-
-<div class="question">
-<label class="ql">你做什么类型？</label>
-<input type="text" name="free_type" placeholder="如：设计、写作、编程、电商、自媒体...">
-</div>
-
-<div class="question">
-<label class="ql">做了多久了？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="free_time" value="半年以下"><span>半年以下</span></label>
-<label class="rl"><input type="radio" name="free_time" value="半年-1年"><span>半年-1年</span></label>
-<label class="rl"><input type="radio" name="free_time" value="1-3年"><span>1-3年</span></label>
-<label class="rl"><input type="radio" name="free_time" value="3年以上"><span>3年以上</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">收入稳定吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="free_stable" value="很稳定"><span>很稳定</span></label>
-<label class="rl"><input type="radio" name="free_stable" value="时好时坏"><span>时好时坏</span></label>
-<label class="rl"><input type="radio" name="free_stable" value="很不稳定"><span>很不稳定</span></label>
-<label class="rl"><input type="radio" name="free_stable" value="还在亏损"><span>还在亏损</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你最大的挑战是什么？</label>
-<div class="checkbox-group">
-<label class="rl"><input type="checkbox" name="free_challenge" value="找客户"><span>找客户</span></label>
-<label class="rl"><input type="checkbox" name="free_challenge" value="收入不稳定"><span>收入不稳定</span></label>
-<label class="rl"><input type="checkbox" name="free_challenge" value="自律"><span>自律</span></label>
-<label class="rl"><input type="checkbox" name="free_challenge" value="孤独感"><span>孤独感</span></label>
-<label class="rl"><input type="checkbox" name="free_challenge" value="没有社保"><span>没有社保</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">家人支持你做自由职业/创业吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="free_family" value="支持"><span>支持</span></label>
-<label class="rl"><input type="radio" name="free_family" value="中立"><span>中立</span></label>
-<label class="rl"><input type="radio" name="free_family" value="反对"><span>反对</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你每天工作多长时间？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="free_hours" value="4小时以下"><span>4小时以下</span></label>
-<label class="rl"><input type="radio" name="free_hours" value="4-8小时"><span>4-8小时</span></label>
-<label class="rl"><input type="radio" name="free_hours" value="8-12小时"><span>8-12小时</span></label>
-<label class="rl"><input type="radio" name="free_hours" value="12小时以上"><span>12小时以上</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你觉得自由职业/创业比上班好吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="free_better" value="好很多"><span>好很多</span></label>
-<label class="rl"><input type="radio" name="free_better" value="差不多"><span>差不多</span></label>
-<label class="rl"><input type="radio" name="free_better" value="还不如上班"><span>还不如上班</span></label>
-</div>
-</div>
+<div class="question"><label class="ql">你做什么类型？</label><input type="text" name="free_type" placeholder="如：设计、写作、编程、电商、自媒体..."></div>
+<div class="question"><label class="ql">做了多久了？</label><div class="radio-group"><label class="rl"><input type="radio" name="free_time" value="半年以下"><span>半年以下</span></label><label class="rl"><input type="radio" name="free_time" value="半年-1年"><span>半年-1年</span></label><label class="rl"><input type="radio" name="free_time" value="1-3年"><span>1-3年</span></label><label class="rl"><input type="radio" name="free_time" value="3年以上"><span>3年以上</span></label></div></div>
+<div class="question"><label class="ql">收入稳定吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="free_stable" value="很稳定"><span>很稳定</span></label><label class="rl"><input type="radio" name="free_stable" value="时好时坏"><span>时好时坏</span></label><label class="rl"><input type="radio" name="free_stable" value="很不稳定"><span>很不稳定</span></label><label class="rl"><input type="radio" name="free_stable" value="还在亏损"><span>还在亏损</span></label></div></div>
+<div class="question"><label class="ql">你最大的挑战是什么？（多选）</label><div class="checkbox-group"><label class="rl"><input type="checkbox" name="free_challenge" value="找客户"><span>找客户</span></label><label class="rl"><input type="checkbox" name="free_challenge" value="收入不稳定"><span>收入不稳定</span></label><label class="rl"><input type="checkbox" name="free_challenge" value="自律"><span>自律</span></label><label class="rl"><input type="checkbox" name="free_challenge" value="孤独感"><span>孤独感</span></label><label class="rl"><input type="checkbox" name="free_challenge" value="没有社保"><span>没有社保</span></label></div></div>
+<div class="question"><label class="ql">家人支持你做自由职业/创业吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="free_family" value="支持"><span>支持</span></label><label class="rl"><input type="radio" name="free_family" value="中立"><span>中立</span></label><label class="rl"><input type="radio" name="free_family" value="反对"><span>反对</span></label></div></div>
+<div class="question"><label class="ql">你每天工作多长时间？</label><div class="radio-group"><label class="rl"><input type="radio" name="free_hours" value="4小时以下"><span>4小时以下</span></label><label class="rl"><input type="radio" name="free_hours" value="4-8小时"><span>4-8小时</span></label><label class="rl"><input type="radio" name="free_hours" value="8-12小时"><span>8-12小时</span></label><label class="rl"><input type="radio" name="free_hours" value="12小时以上"><span>12小时以上</span></label></div></div>
+<div class="question"><label class="ql">你觉得比上班好吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="free_better" value="好很多"><span>好很多</span></label><label class="rl"><input type="radio" name="free_better" value="差不多"><span>差不多</span></label><label class="rl"><input type="radio" name="free_better" value="还不如上班"><span>还不如上班</span></label></div></div>
 </div>
 
 <!-- 待业专属 -->
 <div class="section hidden" id="sec-unemployed">
 <div class="section-title">😶 待业专属</div>
-
-<div class="question">
-<label class="ql">你待业多久了？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="unemp_time" value="1个月以下"><span>1个月以下</span></label>
-<label class="rl"><input type="radio" name="unemp_time" value="1-3个月"><span>1-3个月</span></label>
-<label class="rl"><input type="radio" name="unemp_time" value="3-6个月"><span>3-6个月</span></label>
-<label class="rl"><input type="radio" name="unemp_time" value="半年以上"><span>半年以上</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你是主动离职还是被动的？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="unemp_reason" value="主动辞职"><span>主动辞职</span></label>
-<label class="rl"><input type="radio" name="unemp_reason" value="被裁员"><span>被裁员</span></label>
-<label class="rl"><input type="radio" name="unemp_reason" value="合同到期"><span>合同到期</span></label>
-<label class="rl"><input type="radio" name="unemp_reason" value="刚毕业还没找到"><span>刚毕业还没找到</span></label>
-</div>
+<div class="question"><label class="ql">你待业多久了？</label><div class="radio-group"><label class="rl"><input type="radio" name="unemp_time" value="1个月以下"><span>1个月以下</span></label><label class="rl"><input type="radio" name="unemp_time" value="1-3个月"><span>1-3个月</span></label><label class="rl"><input type="radio" name="unemp_time" value="3-6个月"><span>3-6个月</span></label><label class="rl"><input type="radio" name="unemp_time" value="半年以上"><span>半年以上</span></label></div></div>
+<div class="question"><label class="ql">你是主动离职还是被动的？</label><div class="radio-group"><label class="rl"><input type="radio" name="unemp_reason" value="主动辞职"><span>主动辞职</span></label><label class="rl"><input type="radio" name="unemp_reason" value="被裁员"><span>被裁员</span></label><label class="rl"><input type="radio" name="unemp_reason" value="合同到期"><span>合同到期</span></label><label class="rl"><input type="radio" name="unemp_reason" value="刚毕业还没找到"><span>刚毕业还没找到</span></label></div></div>
+<div class="question"><label class="ql">你目前有经济压力吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="unemp_money" value="很大"><span>很大</span></label><label class="rl"><input type="radio" name="unemp_money" value="有一点"><span>有一点</span></label><label class="rl"><input type="radio" name="unemp_money" value="没有，有存款"><span>没有，有存款</span></label><label class="rl"><input type="radio" name="unemp_money" value="没有，家人支持"><span>没有，家人支持</span></label></div></div>
+<div class="question"><label class="ql">你在积极找工作吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="unemp_looking" value="每天都在找"><span>每天都在找</span></label><label class="rl"><input type="radio" name="unemp_looking" value="偶尔看看"><span>偶尔看看</span></label><label class="rl"><input type="radio" name="unemp_looking" value="暂时不想找"><span>暂时不想找</span></label></div></div>
+<div class="question"><label class="ql">你投了多少简历了？</label><div class="radio-group"><label class="rl"><input type="radio" name="unemp_apply" value="10份以下"><span>10份以下</span></label><label class="rl"><input type="radio" name="unemp_apply" value="10-50份"><span>10-50份</span></label><label class="rl"><input type="radio" name="unemp_apply" value="50-100份"><span>50-100份</span></label><label class="rl"><input type="radio" name="unemp_apply" value="100份以上"><span>100份以上</span></label></div></div>
+<div class="question"><label class="ql">找工作中最大的困难是什么？（多选）</label><div class="checkbox-group"><label class="rl"><input type="checkbox" name="unemp_hard" value="岗位少"><span>岗位少</span></label><label class="rl"><input type="checkbox" name="unemp_hard" value="要求高"><span>要求高</span></label><label class="rl"><input type="checkbox" name="unemp_hard" value="竞争大"><span>竞争大</span></label><label class="rl"><input type="checkbox" name="unemp_hard" value="年龄歧视"><span>年龄歧视</span></label><label class="rl"><input type="checkbox" name="unemp_hard" value="技能不够"><span>技能不够</span></label></div></div>
+<div class="question"><label class="ql">你焦虑吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="unemp_anxious" value="非常焦虑"><span>非常焦虑</span></label><label class="rl"><input type="radio" name="unemp_anxious" value="有点焦虑"><span>有点焦虑</span></label><label class="rl"><input type="radio" name="unemp_anxious" value="还好"><span>还好</span></label><label class="rl"><input type="radio" name="unemp_anxious" value="不焦虑"><span>不焦虑</span></label></div></div>
+<div class="question"><label class="ql">家人催你找工作吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="unemp_family" value="催得很紧"><span>催得很紧</span></label><label class="rl"><input type="radio" name="unemp_family" value="偶尔提"><span>偶尔提</span></label><label class="rl"><input type="radio" name="unemp_family" value="不催"><span>不催</span></label><label class="rl"><input type="radio" name="unemp_family" value="很支持你"><span>很支持你</span></label></div></div>
+<div class="question"><label class="ql">你有什么打算？</label><div class="radio-group"><label class="rl"><input type="radio" name="unemp_plan" value="继续找同行业"><span>继续找同行业</span></label><label class="rl"><input type="radio" name="unemp_plan" value="换个方向"><span>换个方向</span></label><label class="rl"><input type="radio" name="unemp_plan" value="考研考公"><span>考研考公</span></label><label class="rl"><input type="radio" name="unemp_plan" value="先休息"><span>先休息</span></label><label class="rl"><input type="radio" name="unemp_plan" value="创业"><span>创业</span></label></div></div>
 </div>
 
-<div class="question">
-<label class="ql">你目前有经济压力吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="unemp_money" value="很大"><span>很大</span></label>
-<label class="rl"><input type="radio" name="unemp_money" value="有一点"><span>有一点</span></label>
-<label class="rl"><input type="radio" name="unemp_money" value="没有，有存款"><span>没有，有存款</span></label>
-<label class="rl"><input type="radio" name="unemp_money" value="没有，家人支持"><span>没有，家人支持</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你在积极找工作吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="unemp_looking" value="每天都在找"><span>每天都在找</span></label>
-<label class="rl"><input type="radio" name="unemp_looking" value="偶尔看看"><span>偶尔看看</span></label>
-<label class="rl"><input type="radio" name="unemp_looking" value="暂时不想找"><span>暂时不想找</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你投了多少简历了？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="unemp_apply" value="10份以下"><span>10份以下</span></label>
-<label class="rl"><input type="radio" name="unemp_apply" value="10-50份"><span>10-50份</span></label>
-<label class="rl"><input type="radio" name="unemp_apply" value="50-100份"><span>50-100份</span></label>
-<label class="rl"><input type="radio" name="unemp_apply" value="100份以上"><span>100份以上</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">找工作中最大的困难是什么？</label>
-<div class="checkbox-group">
-<label class="rl"><input type="checkbox" name="unemp_hard" value="岗位少"><span>岗位少</span></label>
-<label class="rl"><input type="checkbox" name="unemp_hard" value="要求高"><span>要求高</span></label>
-<label class="rl"><input type="checkbox" name="unemp_hard" value="竞争大"><span>竞争大</span></label>
-<label class="rl"><input type="checkbox" name="unemp_hard" value="年龄歧视"><span>年龄歧视</span></label>
-<label class="rl"><input type="checkbox" name="unemp_hard" value="技能不够"><span>技能不够</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你焦虑吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="unemp_anxious" value="非常焦虑"><span>非常焦虑</span></label>
-<label class="rl"><input type="radio" name="unemp_anxious" value="有点焦虑"><span>有点焦虑</span></label>
-<label class="rl"><input type="radio" name="unemp_anxious" value="还好"><span>还好</span></label>
-<label class="rl"><input type="radio" name="unemp_anxious" value="不焦虑"><span>不焦虑</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">家人催你找工作吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="unemp_family" value="催得很紧"><span>催得很紧</span></label>
-<label class="rl"><input type="radio" name="unemp_family" value="偶尔提"><span>偶尔提</span></label>
-<label class="rl"><input type="radio" name="unemp_family" value="不催"><span>不催</span></label>
-<label class="rl"><input type="radio" name="unemp_family" value="很支持你"><span>很支持你</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你有什么打算？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="unemp_plan" value="继续找同行业"><span>继续找同行业</span></label>
-<label class="rl"><input type="radio" name="unemp_plan" value="换个方向"><span>换个方向</span></label>
-<label class="rl"><input type="radio" name="unemp_plan" value="考研考公"><span>考研考公</span></label>
-<label class="rl"><input type="radio" name="unemp_plan" value="先休息"><span>先休息</span></label>
-<label class="rl"><input type="radio" name="unemp_plan" value="创业"><span>创业</span></label>
-</div>
-</div>
-</div>
-
-<!-- 通用：住房 -->
+<!-- 住房 -->
 <div class="section">
 <div class="section-title">🏠 住房</div>
-
-<div class="question">
-<label class="ql">你现在的住房情况？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="housing" value="自己租房"><span>自己租房</span></label>
-<label class="rl"><input type="radio" name="housing" value="合租"><span>合租</span></label>
-<label class="rl"><input type="radio" name="housing" value="住家里"><span>住家里</span></label>
-<label class="rl"><input type="radio" name="housing" value="自己买房"><span>自己买房</span></label>
-<label class="rl"><input type="radio" name="housing" value="公司宿舍"><span>公司宿舍</span></label>
-</div>
+<div class="question"><label class="ql">你现在的住房情况？</label><div class="radio-group"><label class="rl"><input type="radio" name="housing" value="自己租房"><span>自己租房</span></label><label class="rl"><input type="radio" name="housing" value="合租"><span>合租</span></label><label class="rl"><input type="radio" name="housing" value="住家里"><span>住家里</span></label><label class="rl"><input type="radio" name="housing" value="自己买房"><span>自己买房</span></label><label class="rl"><input type="radio" name="housing" value="公司宿舍"><span>公司宿舍</span></label></div></div>
+<div class="question"><label class="ql">你有买房的打算吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="buyhouse" value="已经买了"><span>已经买了</span></label><label class="rl"><input type="radio" name="buyhouse" value="正在攒钱"><span>正在攒钱</span></label><label class="rl"><input type="radio" name="buyhouse" value="想买但买不起"><span>想买但买不起</span></label><label class="rl"><input type="radio" name="buyhouse" value="不想买"><span>不想买</span></label></div></div>
 </div>
 
-<div class="question">
-<label class="ql">你有买房的打算吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="buyhouse" value="已经买了"><span>已经买了</span></label>
-<label class="rl"><input type="radio" name="buyhouse" value="正在攒钱"><span>正在攒钱</span></label>
-<label class="rl"><input type="radio" name="buyhouse" value="想买但买不起"><span>想买但买不起</span></label>
-<label class="rl"><input type="radio" name="buyhouse" value="不想买"><span>不想买</span></label>
-</div>
-</div>
-</div>
-
-<!-- 通用：感情 -->
+<!-- 感情 -->
 <div class="section">
 <div class="section-title">💕 感情</div>
-
-<div class="question">
-<label class="ql">你的感情状态？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="relationship" value="单身"><span>单身</span></label>
-<label class="rl"><input type="radio" name="relationship" value="恋爱中"><span>恋爱中</span></label>
-<label class="rl"><input type="radio" name="relationship" value="已婚"><span>已婚</span></label>
-<label class="rl"><input type="radio" name="relationship" value="离异"><span>离异</span></label>
-</div>
+<div class="question"><label class="ql">你的感情状态？</label><div class="radio-group"><label class="rl"><input type="radio" name="relationship" value="单身"><span>单身</span></label><label class="rl"><input type="radio" name="relationship" value="恋爱中"><span>恋爱中</span></label><label class="rl"><input type="radio" name="relationship" value="已婚"><span>已婚</span></label><label class="rl"><input type="radio" name="relationship" value="离异"><span>离异</span></label></div></div>
+<div class="question"><label class="ql">你有被催婚/催生的压力吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="marriage_pressure" value="很大"><span>很大</span></label><label class="rl"><input type="radio" name="marriage_pressure" value="有一点"><span>有一点</span></label><label class="rl"><input type="radio" name="marriage_pressure" value="没有"><span>没有</span></label></div></div>
+<div class="question"><label class="ql">你觉得找对象难吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="find_love" value="很难"><span>很难</span></label><label class="rl"><input type="radio" name="find_love" value="有点难"><span>有点难</span></label><label class="rl"><input type="radio" name="find_love" value="不难"><span>不难</span></label><label class="rl"><input type="radio" name="find_love" value="不想找"><span>不想找</span></label></div></div>
 </div>
 
-<div class="question">
-<label class="ql">你有被催婚/催生的压力吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="marriage_pressure" value="很大"><span>很大</span></label>
-<label class="rl"><input type="radio" name="marriage_pressure" value="有一点"><span>有一点</span></label>
-<label class="rl"><input type="radio" name="marriage_pressure" value="没有"><span>没有</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你觉得找对象难吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="find_love" value="很难"><span>很难</span></label>
-<label class="rl"><input type="radio" name="find_love" value="有点难"><span>有点难</span></label>
-<label class="rl"><input type="radio" name="find_love" value="不难"><span>不难</span></label>
-<label class="rl"><input type="radio" name="find_love" value="不想找"><span>不想找</span></label>
-</div>
-</div>
+<!-- 消费与理财 -->
+<div class="section">
+<div class="section-title">💰 消费与理财</div>
+<div class="question"><label class="ql">你每个月能存下钱吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="saving" value="能存不少"><span>能存不少</span></label><label class="rl"><input type="radio" name="saving" value="存一点"><span>存一点</span></label><label class="rl"><input type="radio" name="saving" value="月光"><span>月光</span></label><label class="rl"><input type="radio" name="saving" value="负债"><span>负债</span></label></div></div>
+<div class="question"><label class="ql">你花钱最多的方面？（多选）</label><div class="checkbox-group"><label class="rl"><input type="checkbox" name="spending" value="吃饭"><span>吃饭</span></label><label class="rl"><input type="checkbox" name="spending" value="房租"><span>房租</span></label><label class="rl"><input type="checkbox" name="spending" value="社交"><span>社交</span></label><label class="rl"><input type="checkbox" name="spending" value="购物"><span>购物</span></label><label class="rl"><input type="checkbox" name="spending" value="游戏"><span>游戏</span></label><label class="rl"><input type="checkbox" name="spending" value="学习"><span>学习</span></label></div></div>
+<div class="question"><label class="ql">你有超前消费吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="credit" value="有，花呗"><span>有，花呗</span></label><label class="rl"><input type="radio" name="credit" value="有，信用卡"><span>有，信用卡</span></label><label class="rl"><input type="radio" name="credit" value="有，网贷"><span>有，网贷</span></label><label class="rl"><input type="radio" name="credit" value="没有"><span>没有</span></label></div></div>
+<div class="question"><label class="ql">你对理财有概念吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="finance" value="有在理财"><span>有在理财</span></label><label class="rl"><input type="radio" name="finance" value="了解但没行动"><span>了解但没行动</span></label><label class="rl"><input type="radio" name="finance" value="完全不懂"><span>完全不懂</span></label></div></div>
 </div>
 
-<!-- 通用：心理 -->
+<!-- 心理与情绪 -->
 <div class="section">
 <div class="section-title">🧠 心理与情绪</div>
-
-<div class="question">
-<label class="ql">你目前的心理状态？<span class="required">*</span></label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="mental" value="很好" required><span>很好</span></label>
-<label class="rl"><input type="radio" name="mental" value="还行"><span>还行</span></label>
-<label class="rl"><input type="radio" name="mental" value="有点焦虑"><span>有点焦虑</span></label>
-<label class="rl"><input type="radio" name="mental" value="很焦虑/抑郁"><span>很焦虑/抑郁</span></label>
-</div>
+<div class="question"><label class="ql">你目前的心理状态？<span class="required">*</span></label><div class="radio-group"><label class="rl"><input type="radio" name="mental" value="很好" required><span>很好</span></label><label class="rl"><input type="radio" name="mental" value="还行"><span>还行</span></label><label class="rl"><input type="radio" name="mental" value="有点焦虑"><span>有点焦虑</span></label><label class="rl"><input type="radio" name="mental" value="很焦虑/抑郁"><span>很焦虑/抑郁</span></label></div></div>
+<div class="question"><label class="ql">你最大的焦虑来源？（多选）</label><div class="checkbox-group"><label class="rl"><input type="checkbox" name="anxiety" value="工作"><span>工作</span></label><label class="rl"><input type="checkbox" name="anxiety" value="钱"><span>钱</span></label><label class="rl"><input type="checkbox" name="anxiety" value="感情"><span>感情</span></label><label class="rl"><input type="checkbox" name="anxiety" value="家庭"><span>家庭</span></label><label class="rl"><input type="checkbox" name="anxiety" value="健康"><span>健康</span></label><label class="rl"><input type="checkbox" name="anxiety" value="未来迷茫"><span>未来迷茫</span></label><label class="rl"><input type="checkbox" name="anxiety" value="社会比较"><span>社会比较</span></label></div></div>
+<div class="question"><label class="ql">你怎么缓解压力？（多选）</label><div class="checkbox-group"><label class="rl"><input type="checkbox" name="relief" value="运动"><span>运动</span></label><label class="rl"><input type="checkbox" name="relief" value="刷手机"><span>刷手机</span></label><label class="rl"><input type="checkbox" name="relief" value="打游戏"><span>打游戏</span></label><label class="rl"><input type="checkbox" name="relief" value="和朋友聊"><span>和朋友聊</span></label><label class="rl"><input type="checkbox" name="relief" value="睡觉"><span>睡觉</span></label><label class="rl"><input type="checkbox" name="relief" value="吃东西"><span>吃东西</span></label><label class="rl"><input type="checkbox" name="relief" value="其他"><span>其他</span></label></div></div>
+<div class="question"><label class="ql">你有可以说心里话的人吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="confidant" value="有好几个"><span>有好几个</span></label><label class="rl"><input type="radio" name="confidant" value="有一两个"><span>有一两个</span></label><label class="rl"><input type="radio" name="confidant" value="没有"><span>没有</span></label></div></div>
+<div class="question"><label class="ql">你觉得孤独吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="lonely" value="经常"><span>经常</span></label><label class="rl"><input type="radio" name="lonely" value="偶尔"><span>偶尔</span></label><label class="rl"><input type="radio" name="lonely" value="很少"><span>很少</span></label><label class="rl"><input type="radio" name="lonely" value="从不"><span>从不</span></label></div></div>
 </div>
 
-<div class="question">
-<label class="ql">你最大的焦虑来源？（多选）</label>
-<div class="checkbox-group">
-<label class="rl"><input type="checkbox" name="anxiety" value="工作"><span>工作</span></label>
-<label class="rl"><input type="checkbox" name="anxiety" value="钱"><span>钱</span></label>
-<label class="rl"><input type="checkbox" name="anxiety" value="感情"><span>感情</span></label>
-<label class="rl"><input type="checkbox" name="anxiety" value="家庭"><span>家庭</span></label>
-<label class="rl"><input type="checkbox" name="anxiety" value="健康"><span>健康</span></label>
-<label class="rl"><input type="checkbox" name="anxiety" value="未来迷茫"><span>未来迷茫</span></label>
-<label class="rl"><input type="checkbox" name="anxiety" value="社会比较"><span>社会比较</span></label>
-</div>
+<!-- 社交媒体 -->
+<div class="section">
+<div class="section-title">📱 社交媒体</div>
+<div class="question"><label class="ql">你每天花最多时间在哪个平台？</label><div class="radio-group"><label class="rl"><input type="radio" name="platform" value="抖音"><span>抖音</span></label><label class="rl"><input type="radio" name="platform" value="小红书"><span>小红书</span></label><label class="rl"><input type="radio" name="platform" value="B站"><span>B站</span></label><label class="rl"><input type="radio" name="platform" value="微信"><span>微信</span></label><label class="rl"><input type="radio" name="platform" value="微博"><span>微博</span></label><label class="rl"><input type="radio" name="platform" value="其他"><span>其他</span></label></div></div>
+<div class="question"><label class="ql">你会在社交媒体上焦虑吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="social_anxiety" value="看到别人生活会焦虑"><span>看到别人会焦虑</span></label><label class="rl"><input type="radio" name="social_anxiety" value="不会"><span>不会</span></label><label class="rl"><input type="radio" name="social_anxiety" value="已经不看了"><span>已经不看了</span></label></div></div>
+<div class="question"><label class="ql">你有社交媒体倦怠吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="social_fatigue" value="有，想戒"><span>有，想戒</span></label><label class="rl"><input type="radio" name="social_fatigue" value="有一点"><span>有一点</span></label><label class="rl"><input type="radio" name="social_fatigue" value="没有"><span>没有</span></label></div></div>
 </div>
 
-<div class="question">
-<label class="ql">你怎么缓解压力？（多选）</label>
-<div class="checkbox-group">
-<label class="rl"><input type="checkbox" name="relief" value="运动"><span>运动</span></label>
-<label class="rl"><input type="checkbox" name="relief" value="刷手机"><span>刷手机</span></label>
-<label class="rl"><input type="checkbox" name="relief" value="打游戏"><span>打游戏</span></label>
-<label class="rl"><input type="checkbox" name="relief" value="和朋友聊"><span>和朋友聊</span></label>
-<label class="rl"><input type="checkbox" name="relief" value="睡觉"><span>睡觉</span></label>
-<label class="rl"><input type="checkbox" name="relief" value="吃东西"><span>吃东西</span></label>
-<label class="rl"><input type="checkbox" name="relief" value="其他"><span>其他</span></label>
-</div>
+<!-- 健康 -->
+<div class="section">
+<div class="section-title">🏥 健康</div>
+<div class="question"><label class="ql">你觉得自己的身体健康吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="health" value="很好"><span>很好</span></label><label class="rl"><input type="radio" name="health" value="还行"><span>还行</span></label><label class="rl"><input type="radio" name="health" value="不太好"><span>不太好</span></label><label class="rl"><input type="radio" name="health" value="有慢性病"><span>有慢性病</span></label></div></div>
+<div class="question"><label class="ql">你有定期体检吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="checkup" value="有"><span>有</span></label><label class="rl"><input type="radio" name="checkup" value="没有"><span>没有</span></label><label class="rl"><input type="radio" name="checkup" value="没关注过"><span>没关注过</span></label></div></div>
+<div class="question"><label class="ql">你有失眠问题吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="insomnia" value="没有"><span>没有</span></label><label class="rl"><input type="radio" name="insomnia" value="偶尔"><span>偶尔</span></label><label class="rl"><input type="radio" name="insomnia" value="经常"><span>经常</span></label><label class="rl"><input type="radio" name="insomnia" value="严重"><span>严重</span></label></div></div>
 </div>
 
-<div class="question">
-<label class="ql">你有可以说心里话的人吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="confidant" value="有好几个"><span>有好几个</span></label>
-<label class="rl"><input type="radio" name="confidant" value="有一两个"><span>有一两个</span></label>
-<label class="rl"><input type="radio" name="confidant" value="没有"><span>没有</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你觉得孤独吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="lonely" value="经常"><span>经常</span></label>
-<label class="rl"><input type="radio" name="lonely" value="偶尔"><span>偶尔</span></label>
-<label class="rl"><input type="radio" name="lonely" value="很少"><span>很少</span></label>
-<label class="rl"><input type="radio" name="lonely" value="从不"><span>从不</span></label>
-</div>
-</div>
-</div>
-
-<!-- 通用：生活习惯 -->
+<!-- 生活习惯 -->
 <div class="section">
 <div class="section-title">🌙 生活习惯</div>
-
-<div class="question">
-<label class="ql">你每天大概几点睡？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="sleep" value="10点前"><span>10点前</span></label>
-<label class="rl"><input type="radio" name="sleep" value="10-12点"><span>10-12点</span></label>
-<label class="rl"><input type="radio" name="sleep" value="12-2点"><span>12-2点</span></label>
-<label class="rl"><input type="radio" name="sleep" value="2点以后"><span>2点以后</span></label>
-</div>
+<div class="question"><label class="ql">你每天大概几点睡？</label><div class="radio-group"><label class="rl"><input type="radio" name="sleep" value="10点前"><span>10点前</span></label><label class="rl"><input type="radio" name="sleep" value="10-12点"><span>10-12点</span></label><label class="rl"><input type="radio" name="sleep" value="12-2点"><span>12-2点</span></label><label class="rl"><input type="radio" name="sleep" value="2点以后"><span>2点以后</span></label></div></div>
+<div class="question"><label class="ql">你每周运动几次？</label><div class="radio-group"><label class="rl"><input type="radio" name="exercise" value="几乎不"><span>几乎不</span></label><label class="rl"><input type="radio" name="exercise" value="1-2次"><span>1-2次</span></label><label class="rl"><input type="radio" name="exercise" value="3-4次"><span>3-4次</span></label><label class="rl"><input type="radio" name="exercise" value="5次以上"><span>5次以上</span></label></div></div>
+<div class="question"><label class="ql">你每天刷手机多长时间？</label><div class="radio-group"><label class="rl"><input type="radio" name="phone" value="2小时以下"><span>2小时以下</span></label><label class="rl"><input type="radio" name="phone" value="2-4小时"><span>2-4小时</span></label><label class="rl"><input type="radio" name="phone" value="4-6小时"><span>4-6小时</span></label><label class="rl"><input type="radio" name="phone" value="6小时以上"><span>6小时以上</span></label></div></div>
+<div class="question"><label class="ql">你觉得自己"卷"吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="roll" value="很卷"><span>很卷</span></label><label class="rl"><input type="radio" name="roll" value="有一点"><span>有一点</span></label><label class="rl"><input type="radio" name="roll" value="不卷"><span>不卷</span></label><label class="rl"><input type="radio" name="roll" value="躺平了"><span>躺平了</span></label></div></div>
 </div>
 
-<div class="question">
-<label class="ql">你每周运动几次？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="exercise" value="几乎不"><span>几乎不</span></label>
-<label class="rl"><input type="radio" name="exercise" value="1-2次"><span>1-2次</span></label>
-<label class="rl"><input type="radio" name="exercise" value="3-4次"><span>3-4次</span></label>
-<label class="rl"><input type="radio" name="exercise" value="5次以上"><span>5次以上</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你每天刷手机多长时间？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="phone" value="2小时以下"><span>2小时以下</span></label>
-<label class="rl"><input type="radio" name="phone" value="2-4小时"><span>2-4小时</span></label>
-<label class="rl"><input type="radio" name="phone" value="4-6小时"><span>4-6小时</span></label>
-<label class="rl"><input type="radio" name="phone" value="6小时以上"><span>6小时以上</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你觉得自己"卷"吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="roll" value="很卷"><span>很卷</span></label>
-<label class="rl"><input type="radio" name="roll" value="有一点"><span>有一点</span></label>
-<label class="rl"><input type="radio" name="roll" value="不卷"><span>不卷</span></label>
-<label class="rl"><input type="radio" name="roll" value="躺平了"><span>躺平了</span></label>
-</div>
-</div>
-</div>
-
-<!-- 通用：家庭 -->
+<!-- 家庭关系 -->
 <div class="section">
 <div class="section-title">👨‍👩‍👧 家庭关系</div>
-
-<div class="question">
-<label class="ql">你和父母的关系怎么样？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="parents" value="很好"><span>很好</span></label>
-<label class="rl"><input type="radio" name="parents" value="还行"><span>还行</span></label>
-<label class="rl"><input type="radio" name="parents" value="一般"><span>一般</span></label>
-<label class="rl"><input type="radio" name="parents" value="不好"><span>不好</span></label>
-</div>
+<div class="question"><label class="ql">你和父母的关系怎么样？</label><div class="radio-group"><label class="rl"><input type="radio" name="parents" value="很好"><span>很好</span></label><label class="rl"><input type="radio" name="parents" value="还行"><span>还行</span></label><label class="rl"><input type="radio" name="parents" value="一般"><span>一般</span></label><label class="rl"><input type="radio" name="parents" value="不好"><span>不好</span></label></div></div>
+<div class="question"><label class="ql">你觉得原生家庭对你影响大吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="family_impact" value="很大"><span>很大</span></label><label class="rl"><input type="radio" name="family_impact" value="有一点"><span>有一点</span></label><label class="rl"><input type="radio" name="family_impact" value="没什么影响"><span>没什么影响</span></label></div></div>
+<div class="question"><label class="ql">你和父母的沟通顺畅吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="family_talk" value="很顺畅"><span>很顺畅</span></label><label class="rl"><input type="radio" name="family_talk" value="还行"><span>还行</span></label><label class="rl"><input type="radio" name="family_talk" value="很少沟通"><span>很少沟通</span></label><label class="rl"><input type="radio" name="family_talk" value="无法沟通"><span>无法沟通</span></label></div></div>
 </div>
 
-<div class="question">
-<label class="ql">你觉得原生家庭对你影响大吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="family_impact" value="很大"><span>很大</span></label>
-<label class="rl"><input type="radio" name="family_impact" value="有一点"><span>有一点</span></label>
-<label class="rl"><input type="radio" name="family_impact" value="没什么影响"><span>没什么影响</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你和父母的沟通顺畅吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="family_talk" value="很顺畅"><span>很顺畅</span></label>
-<label class="rl"><input type="radio" name="family_talk" value="还行"><span>还行</span></label>
-<label class="rl"><input type="radio" name="family_talk" value="很少沟通"><span>很少沟通</span></label>
-<label class="rl"><input type="radio" name="family_talk" value="无法沟通"><span>无法沟通</span></label>
-</div>
-</div>
+<!-- 人生阶段压力 -->
+<div class="section">
+<div class="section-title">⚡ 人生阶段压力</div>
+<div class="question"><label class="ql">你觉得同龄人压力大吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="peer_pressure" value="很大"><span>很大</span></label><label class="rl"><input type="radio" name="peer_pressure" value="比较大"><span>比较大</span></label><label class="rl"><input type="radio" name="peer_pressure" value="一般"><span>一般</span></label><label class="rl"><input type="radio" name="peer_pressure" value="不大"><span>不大</span></label></div></div>
+<div class="question"><label class="ql">你身边的人过得好吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="peer_life" value="大部分好"><span>大部分好</span></label><label class="rl"><input type="radio" name="peer_life" value="一般"><span>一般</span></label><label class="rl"><input type="radio" name="peer_life" value="大部分不好"><span>大部分不好</span></label></div></div>
+<div class="question"><label class="ql">你觉得社会对你公平吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="fairness" value="公平"><span>公平</span></label><label class="rl"><input type="radio" name="fairness" value="还行"><span>还行</span></label><label class="rl"><input type="radio" name="fairness" value="不太公平"><span>不太公平</span></label><label class="rl"><input type="radio" name="fairness" value="很不公平"><span>很不公平</span></label></div></div>
 </div>
 
-<!-- 通用：人生观 -->
+<!-- 自我认知 -->
+<div class="section">
+<div class="section-title">🪞 自我认知</div>
+<div class="question"><label class="ql">你喜欢现在的自己吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="self_love" value="很喜欢"><span>很喜欢</span></label><label class="rl"><input type="radio" name="self_love" value="还行"><span>还行</span></label><label class="rl"><input type="radio" name="self_love" value="不太喜欢"><span>不太喜欢</span></label><label class="rl"><input type="radio" name="self_love" value="很不喜欢"><span>很不喜欢</span></label></div></div>
+<div class="question"><label class="ql">你觉得自己在成长吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="growth" value="在成长"><span>在成长</span></label><label class="rl"><input type="radio" name="growth" value="停滞"><span>停滞</span></label><label class="rl"><input type="radio" name="growth" value="在退步"><span>在退步</span></label></div></div>
+<div class="question"><label class="ql">你有自我提升的计划吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="improve" value="有在执行"><span>有在执行</span></label><label class="rl"><input type="radio" name="improve" value="有想法没行动"><span>有想法没行动</span></label><label class="rl"><input type="radio" name="improve" value="没有"><span>没有</span></label></div></div>
+</div>
+
+<!-- 社会关注 -->
+<div class="section">
+<div class="section-title">🌍 社会关注</div>
+<div class="question"><label class="ql">你最关心什么社会议题？（多选）</label><div class="checkbox-group"><label class="rl"><input type="checkbox" name="social_issue" value="就业"><span>就业</span></label><label class="rl"><input type="checkbox" name="social_issue" value="房价"><span>房价</span></label><label class="rl"><input type="checkbox" name="social_issue" value="教育"><span>教育</span></label><label class="rl"><input type="checkbox" name="social_issue" value="医疗"><span>医疗</span></label><label class="rl"><input type="checkbox" name="social_issue" value="环境"><span>环境</span></label><label class="rl"><input type="checkbox" name="social_issue" value="养老"><span>养老</span></label></div></div>
+<div class="question"><label class="ql">你觉得未来会更好吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="future_better" value="会"><span>会</span></label><label class="rl"><input type="radio" name="future_better" value="不确定"><span>不确定</span></label><label class="rl"><input type="radio" name="future_better" value="不会"><span>不会</span></label></div></div>
+</div>
+
+<!-- 未来与人生 -->
 <div class="section">
 <div class="section-title">🔮 未来与人生</div>
-
-<div class="question">
-<label class="ql">你对未来有信心吗？<span class="required">*</span></label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="future" value="很有信心" required><span>很有信心</span></label>
-<label class="rl"><input type="radio" name="future" value="还行"><span>还行</span></label>
-<label class="rl"><input type="radio" name="future" value="迷茫"><span>迷茫</span></label>
-<label class="rl"><input type="radio" name="future" value="悲观"><span>悲观</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你最想过什么样的生活？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="life" value="稳定安逸"><span>稳定安逸</span></label>
-<label class="rl"><input type="radio" name="life" value="拼搏奋斗"><span>拼搏奋斗</span></label>
-<label class="rl"><input type="radio" name="life" value="自由自在"><span>自由自在</span></label>
-<label class="rl"><input type="radio" name="life" value="赚大钱"><span>赚大钱</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">如果可以重来，你最想改变什么？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="change" value="选专业"><span>选专业</span></label>
-<label class="rl"><input type="radio" name="change" value="选城市"><span>选城市</span></label>
-<label class="rl"><input type="radio" name="change" value="选工作"><span>选工作</span></label>
-<label class="rl"><input type="radio" name="change" value="选伴侣"><span>选伴侣</span></label>
-<label class="rl"><input type="radio" name="change" value="多读书"><span>多读书</span></label>
-<label class="rl"><input type="radio" name="change" value="不变"><span>不变</span></label>
-</div>
-</div>
-
-<div class="question">
-<label class="ql">你觉得人生有意义吗？</label>
-<div class="radio-group">
-<label class="rl"><input type="radio" name="meaning" value="很有"><span>很有</span></label>
-<label class="rl"><input type="radio" name="meaning" value="还行"><span>还行</span></label>
-<label class="rl"><input type="radio" name="meaning" value="不确定"><span>不确定</span></label>
-<label class="rl"><input type="radio" name="meaning" value="觉得没有"><span>觉得没有</span></label>
-</div>
-</div>
+<div class="question"><label class="ql">你对未来有信心吗？<span class="required">*</span></label><div class="radio-group"><label class="rl"><input type="radio" name="future" value="很有信心" required><span>很有信心</span></label><label class="rl"><input type="radio" name="future" value="还行"><span>还行</span></label><label class="rl"><input type="radio" name="future" value="迷茫"><span>迷茫</span></label><label class="rl"><input type="radio" name="future" value="悲观"><span>悲观</span></label></div></div>
+<div class="question"><label class="ql">你最想过什么样的生活？</label><div class="radio-group"><label class="rl"><input type="radio" name="life" value="稳定安逸"><span>稳定安逸</span></label><label class="rl"><input type="radio" name="life" value="拼搏奋斗"><span>拼搏奋斗</span></label><label class="rl"><input type="radio" name="life" value="自由自在"><span>自由自在</span></label><label class="rl"><input type="radio" name="life" value="赚大钱"><span>赚大钱</span></label></div></div>
+<div class="question"><label class="ql">如果可以重来，你最想改变什么？</label><div class="radio-group"><label class="rl"><input type="radio" name="change" value="选专业"><span>选专业</span></label><label class="rl"><input type="radio" name="change" value="选城市"><span>选城市</span></label><label class="rl"><input type="radio" name="change" value="选工作"><span>选工作</span></label><label class="rl"><input type="radio" name="change" value="选伴侣"><span>选伴侣</span></label><label class="rl"><input type="radio" name="change" value="多读书"><span>多读书</span></label><label class="rl"><input type="radio" name="change" value="不变"><span>不变</span></label></div></div>
+<div class="question"><label class="ql">你觉得人生有意义吗？</label><div class="radio-group"><label class="rl"><input type="radio" name="meaning" value="很有"><span>很有</span></label><label class="rl"><input type="radio" name="meaning" value="还行"><span>还行</span></label><label class="rl"><input type="radio" name="meaning" value="不确定"><span>不确定</span></label><label class="rl"><input type="radio" name="meaning" value="觉得没有"><span>觉得没有</span></label></div></div>
 </div>
 
 <!-- 开放题 -->
 <div class="section">
 <div class="section-title">💬 说说心里话</div>
-
-<div class="question">
-<label class="ql">你现在最想解决的一个问题是什么？</label>
-<textarea name="q1" placeholder="说说你的真实想法..."></textarea>
-</div>
-
-<div class="question">
-<label class="ql">你觉得年轻人最难的是什么？</label>
-<textarea name="q2" placeholder="说说你的真实想法..."></textarea>
-</div>
-
-<div class="question">
-<label class="ql">有什么想说但平时没人听的话？</label>
-<textarea name="q3" placeholder="这里是你的树洞..."></textarea>
-</div>
-
-<div class="question">
-<label class="ql">你对"成功"的定义是什么？</label>
-<textarea name="q4" placeholder="说说你的理解..."></textarea>
-</div>
+<div class="question"><label class="ql">你现在最想解决的一个问题是什么？</label><textarea name="q1" placeholder="说说你的真实想法..."></textarea></div>
+<div class="question"><label class="ql">你觉得年轻人最难的是什么？</label><textarea name="q2" placeholder="说说你的真实想法..."></textarea></div>
+<div class="question"><label class="ql">有什么想说但平时没人听的话？</label><textarea name="q3" placeholder="这里是你的树洞..."></textarea></div>
+<div class="question"><label class="ql">你对"成功"的定义是什么？</label><textarea name="q4" placeholder="说说你的理解..."></textarea></div>
 </div>
 
 <!-- 联系方式 -->
 <div class="section">
 <div class="section-title">📱 深入聊聊</div>
-
 <div class="question">
 <label class="ql">想和我聊聊你的故事吗？（选填）</label>
 <p style="color:#a0a0c0;font-size:.85rem;margin-bottom:12px">如果你愿意分享更多，可以留下联系方式，我会找你深入聊聊。你的信息不会公开。</p>
 <input type="text" name="contact" placeholder="微信号 / QQ / 手机号，选填">
 </div>
-
 <div class="wechat-box">
 <p style="color:#a0a0c0;font-size:.85rem">你也可以直接加我微信聊聊</p>
 <div class="wx-id">xzyycgyzz</div>
@@ -820,11 +288,8 @@ textarea{min-height:80px;resize:vertical}
 <div class="thank-you hidden" id="thankYou">
 <h2>🎉 感谢你的参与！</h2>
 <p>请复制下面的文字，发给问卷发起人：</p>
-
 <button class="copy-btn" onclick="copySummary()" style="margin:16px 0;font-size:1rem;padding:14px 32px">📋 复制回答摘要</button>
-
 <pre id="summaryText" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:16px;text-align:left;font-size:.85rem;color:#c0c0d0;white-space:pre-wrap;max-height:300px;overflow-y:auto;margin:12px 0"></pre>
-
 <p style="color:#a0a0c0;font-size:.9rem;margin-top:20px">复制后发送到我的微信：</p>
 <div class="wechat-box">
 <div class="wx-id">xzyycgyzz</div>
@@ -837,95 +302,30 @@ textarea{min-height:80px;resize:vertical}
 const form=document.getElementById('surveyForm')
 const progress=document.getElementById('progress')
 const sections={学生:'sec-student',上班族:'sec-worker',自由职业:'sec-freelance',创业:'sec-freelance',待业:'sec-unemployed'}
+const LABELS={nickname:'昵称',age:'年龄',gender:'性别',city:'城市',identity:'身份',stu_level:'学历',stu_major:'专业',stu_interest:'对专业的兴趣',stu_grade:'学业困难',stu_exam:'考研/考公',stu_job_worry:'就业担心',stu_useful:'所学是否有用',stu_intern:'实习经历',stu_salary:'期望薪资',stu_living:'生活费',stu_money:'钱够花吗',stu_relation:'同学关系',stu_full:'大学充实吗',work_industry:'行业',work_years:'工作年限',work_satisfied:'工作满意度',work_salary:'月薪',work_fair:'付出收入匹配',work_ot:'加班情况',work_fire:'裁员担忧',work_switch:'跳槽想法',work_future:'工作前途',work_plan:'职业规划',work_balance:'工作生活平衡',work_commute:'通勤时间',free_type:'自由职业类型',free_time:'做多久',free_stable:'收入稳定',free_challenge:'最大挑战',free_family:'家人支持',free_hours:'每天工作时长',free_better:'比上班好吗',unemp_time:'待业时长',unemp_reason:'离职原因',unemp_money:'经济压力',unemp_looking:'求职状态',unemp_apply:'投简历数',unemp_hard:'求职困难',unemp_anxious:'焦虑程度',unemp_family:'家人态度',unemp_plan:'打算',housing:'住房',buyhouse:'买房打算',relationship:'感情状态',marriage_pressure:'催婚压力',find_love:'找对象难度',saving:'存钱情况',spending:'花钱方面',credit:'超前消费',finance:'理财概念',mental:'心理状态',anxiety:'焦虑来源',relief:'缓解方式',confidant:'说心里话的人',lonely:'孤独感',platform:'常用社交平台',social_anxiety:'社交媒体焦虑',social_fatigue:'社交媒体倦怠',health:'身体健康',checkup:'定期体检',insomnia:'失眠',sleep:'睡觉时间',exercise:'运动频率',phone:'刷手机时长',roll:'卷的程度',parents:'和父母关系',family_impact:'原生家庭影响',family_talk:'和父母沟通',peer_pressure:'同龄人压力',peer_life:'身边人状态',fairness:'社会公平感',self_love:'喜欢自己吗',growth:'成长感',improve:'自我提升',social_issue:'关心的社会议题',future_better:'未来会更好吗',future:'对未来的信心',life:'理想生活',change:'最想改变',meaning:'人生意义',q1:'最想解决的问题',q2:'年轻人最难的事',q3:'没人听的话',q4:'对成功的定义',contact:'联系方式'}
 
-function showSection(val){
-Object.values(sections).forEach(id=>{const el=document.getElementById(id);if(el)el.classList.add('hidden')})
-const secId=sections[val]
-if(secId){document.getElementById(secId).classList.remove('hidden')}
-updateProgress()
-}
+function showSection(val){Object.values(sections).forEach(id=>{const el=document.getElementById(id);if(el)el.classList.add('hidden')});const secId=sections[val];if(secId)document.getElementById(secId).classList.remove('hidden');updateProgress()}
 
-function updateProgress(){
-const answered=new Set()
-form.querySelectorAll('input[type="radio"]:checked').forEach(el=>answered.add(el.name))
-form.querySelectorAll('input[type="text"],textarea').forEach(el=>{if(el.value.trim())answered.add(el.name)})
-const total=form.querySelectorAll('.question').length
-const pct=Math.min(Math.round((answered.size/total)*100),100)
-progress.style.width=pct+'%'
-}
+function updateProgress(){const answered=new Set();form.querySelectorAll('input[type="radio"]:checked').forEach(el=>answered.add(el.name));form.querySelectorAll('input[type="text"],textarea').forEach(el=>{if(el.value.trim())answered.add(el.name)});const total=form.querySelectorAll('.question').length;const pct=Math.min(Math.round((answered.size/total)*100),100);progress.style.width=pct+'%'}
 
-form.addEventListener('change',updateProgress)
-form.addEventListener('input',updateProgress)
-
-const LABELS={
-nickname:'昵称',age:'年龄',gender:'性别',city:'城市',identity:'身份',
-stu_level:'学历',stu_major:'专业',stu_interest:'对专业的兴趣',stu_grade:'学业困难',stu_exam:'考研/考公',
-stu_job_worry:'就业担心',stu_useful:'所学是否有用',stu_intern:'实习经历',stu_salary:'期望薪资',
-stu_living:'生活费',stu_money:'钱够花吗',stu_relation:'同学关系',stu_full:'大学充实吗',
-work_industry:'行业',work_years:'工作年限',work_satisfied:'工作满意度',work_salary:'月薪',
-work_fair:'付出收入匹配',work_ot:'加班情况',work_fire:'裁员担忧',work_switch:'跳槽想法',
-work_future:'工作前途',work_plan:'职业规划',work_balance:'工作生活平衡',work_commute:'通勤时间',
-free_type:'自由职业类型',free_time:'做多久',free_stable:'收入稳定',free_challenge:'最大挑战',
-free_family:'家人支持',free_hours:'每天工作时长',free_better:'比上班好吗',
-unemp_time:'待业时长',unemp_reason:'离职原因',unemp_money:'经济压力',unemp_looking:'求职状态',
-unemp_apply:'投简历数',unemp_hard:'求职困难',unemp_anxious:'焦虑程度',unemp_family:'家人态度',unemp_plan:'打算',
-housing:'住房',buyhouse:'买房打算',relationship:'感情状态',marriage_pressure:'催婚压力',find_love:'找对象难度',
-mental:'心理状态',anxiety:'焦虑来源',relief:'缓解方式',confidant:'说心里话的人',lonely:'孤独感',
-sleep:'睡觉时间',exercise:'运动频率',phone:'刷手机时长',roll:'卷的程度',
-parents:'和父母关系',family_impact:'原生家庭影响',family_talk:'和父母沟通',
-future:'对未来的信心',life:'理想生活',change:'最想改变',meaning:'人生意义',
-q1:'最想解决的问题',q2:'年轻人最难的事',q3:'没人听的话',q4:'对成功的定义',
-contact:'联系方式'
-}
+form.addEventListener('change',updateProgress);form.addEventListener('input',updateProgress)
 
 form.addEventListener('submit',function(e){
-e.preventDefault()
-const data={}
-
+e.preventDefault();const data={}
 form.querySelectorAll('input[type="radio"]:checked').forEach(el=>{data[el.name]=el.value})
-form.querySelectorAll('input[type="checkbox"]').forEach(cb=>{
-if(!data[cb.name])data[cb.name]=[]
-if(cb.checked)data[cb.name].push(cb.value)
-})
-form.querySelectorAll('input[type="text"],input[type="tel"],textarea').forEach(el=>{
-if(el.name&&el.value.trim())data[el.name]=el.value.trim()
-})
+form.querySelectorAll('input[type="checkbox"]').forEach(cb=>{if(!data[cb.name])data[cb.name]=[];if(cb.checked)data[cb.name].push(cb.value)})
+form.querySelectorAll('input[type="text"],textarea').forEach(el=>{if(el.name&&el.value.trim())data[el.name]=el.value.trim()})
 data._timestamp=new Date().toISOString()
-
-// 保存到本地和全局变量
 window._surveyData=data
-const all=JSON.parse(localStorage.getItem('survey_responses')||'[]')
-all.push(data)
-localStorage.setItem('survey_responses',JSON.stringify(all))
-
-// 生成可读摘要
-let summary='📋 青年生活调查问卷\n'
-summary+='━━━━━━━━━━━━━━━━\n'
-for(const[key,val]of Object.entries(data)){
-if(key.startsWith('_'))continue
-if(!val||(Array.isArray(val)&&val.length===0))continue
-const label=LABELS[key]||key
-const display=Array.isArray(val)?val.join('、'):val
-summary+=`${label}：${display}\n`
-}
-summary+='━━━━━━━━━━━━━━━━\n'
-summary+=`提交时间：${data._timestamp}`
-
+const all=JSON.parse(localStorage.getItem('survey_responses')||'[]');all.push(data);localStorage.setItem('survey_responses',JSON.stringify(all))
+let summary='📋 青年生活调查问卷\n━━━━━━━━━━━━━━━━\n'
+for(const[key,val]of Object.entries(data)){if(key.startsWith('_'))continue;if(!val||(Array.isArray(val)&&val.length===0))continue;const label=LABELS[key]||key;const display=Array.isArray(val)?val.join('、'):val;summary+=`${label}：${display}\n`}
+summary+='━━━━━━━━━━━━━━━━\n'+`提交时间：${data._timestamp}`
 document.getElementById('summaryText').textContent=summary
-form.style.display='none'
-document.querySelector('.progress-bar').style.display='none'
-document.getElementById('thankYou').classList.remove('hidden')
+form.style.display='none';document.querySelector('.progress-bar').style.display='none';document.getElementById('thankYou').classList.remove('hidden')
 })
 
-function copySummary(){
-const text=document.getElementById('summaryText').textContent
-navigator.clipboard.writeText(text).then(()=>alert('已复制！发给问卷发起人即可')).catch(()=>{
-const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta)
-ta.select();document.execCommand('copy');document.body.removeChild(ta);alert('已复制！')
-})
-}
-
-
+function copySummary(){const text=document.getElementById('summaryText').textContent;navigator.clipboard.writeText(text).then(()=>alert('已复制！发给问卷发起人即可')).catch(()=>{const ta=document.createElement('textarea');ta.value=text;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);alert('已复制！')})}
 </script>
 </body>
 </html>
