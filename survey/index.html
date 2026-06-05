@@ -310,14 +310,30 @@ function updateProgress(){const answered=new Set();form.querySelectorAll('input[
 
 form.addEventListener('change',updateProgress);form.addEventListener('input',updateProgress)
 
-form.addEventListener('submit',function(e){
-e.preventDefault();const data={}
+form.addEventListener('submit',async function(e){
+e.preventDefault()
+const btn=form.querySelector('.submit-btn');btn.disabled=true;btn.textContent='提交中...'
+const data={}
 form.querySelectorAll('input[type="radio"]:checked').forEach(el=>{data[el.name]=el.value})
 form.querySelectorAll('input[type="checkbox"]').forEach(cb=>{if(!data[cb.name])data[cb.name]=[];if(cb.checked)data[cb.name].push(cb.value)})
 form.querySelectorAll('input[type="text"],textarea').forEach(el=>{if(el.name&&el.value.trim())data[el.name]=el.value.trim()})
 data._timestamp=new Date().toISOString()
 window._surveyData=data
+
+// 提交到 Supabase
+const SUPABASE_URL='https://zlkortaghhpoqyeawsbp.supabase.co'
+const SUPABASE_KEY='sb_publishable_pZu3OyxidvEN_q2Df3XqOA_jhi1E8TK'
+try{
+await fetch(`${SUPABASE_URL}/rest/v1/survey_responses`,{
+method:'POST',
+headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Content-Type':'application/json','Prefer':'return=minimal'},
+body:JSON.stringify({data:data})
+})
+}catch(err){console.error('Supabase error:',err)}
+
+// 本地也存一份
 const all=JSON.parse(localStorage.getItem('survey_responses')||'[]');all.push(data);localStorage.setItem('survey_responses',JSON.stringify(all))
+
 let summary='📋 青年生活调查问卷\n━━━━━━━━━━━━━━━━\n'
 for(const[key,val]of Object.entries(data)){if(key.startsWith('_'))continue;if(!val||(Array.isArray(val)&&val.length===0))continue;const label=LABELS[key]||key;const display=Array.isArray(val)?val.join('、'):val;summary+=`${label}：${display}\n`}
 summary+='━━━━━━━━━━━━━━━━\n'+`提交时间：${data._timestamp}`
