@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>青年生活调查问卷</title>
+<script src="https://unpkg.com/@cloudbase/js-sdk@2.5.0/dist/index.umd.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);min-height:100vh;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif;color:#e0e0e0;padding:20px}
@@ -320,16 +321,15 @@ form.querySelectorAll('input[type="text"],textarea').forEach(el=>{if(el.name&&el
 data._timestamp=new Date().toISOString()
 window._surveyData=data
 
-// 提交到 Supabase
-const SUPABASE_URL='https://zlkortaghhpoqyeawsbp.supabase.co'
-const SUPABASE_KEY='sb_publishable_pZu3OyxidvEN_q2Df3XqOA_jhi1E8TK'
+// 提交到腾讯云开发
 try{
-await fetch(`${SUPABASE_URL}/rest/v1/survey_responses`,{
-method:'POST',
-headers:{'apikey':SUPABASE_KEY,'Authorization':`Bearer ${SUPABASE_KEY}`,'Content-Type':'application/json','Prefer':'return=minimal'},
-body:JSON.stringify({data:data})
-})
-}catch(err){console.error('Supabase error:',err)}
+const app=cloudbase.init({env:'survey-d0gxk6to301baea15'})
+const auth=app.auth({persistence:'local'})
+await auth.anonymousAuthProvider().signIn()
+const db=app.database()
+await db.collection('survey_responses').add({data:data})
+console.log('提交成功')
+}catch(err){console.error('CloudBase error:',err)}
 
 // 本地也存一份
 const all=JSON.parse(localStorage.getItem('survey_responses')||'[]');all.push(data);localStorage.setItem('survey_responses',JSON.stringify(all))
